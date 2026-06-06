@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Hello Nancy Wellness Study</title>
+<meta name="description" content="Help us hear from 5,000 women. Take our 90-second wellness study — fully anonymous.">
+
+<!-- Open Graph for social sharing -->
+<meta property="og:title" content="The Hello Nancy Wellness Study">
+<meta property="og:description" content="Help us hear from 5,000 women. 90 seconds, fully anonymous.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://bridge.officialnancylem.com/preview.jpg">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://hellonancy.com/favicon.png">
+
+<!-- Fonts: matches the quiz -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ====== NANCY BRAND TOKENS — same as the quiz ====== */
+:root{
+  --nancy-pink:#ff00d1;
+  --nancy-pink-hot:#ff00d7;
+  --nancy-cream:#fcf6eb;
+  --nancy-lime:#c7ff00;
+  --nancy-ink:#1a0e14;
+  --nancy-ink-soft:#4a2b3a;
+  --radius-pill:999px;
+  --radius-soft:22px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --font-display:"Fraunces","Times New Roman",serif;
+  --font-body:"DM Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--nancy-cream);color:var(--nancy-ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased}
+body{min-height:100dvh;overflow-x:hidden;line-height:1.55}
+
+/* ====== Layout ====== */
+.page{
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:24px 20px 40px;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Soft background orbs for visual interest, no animation */
+.orb{position:absolute;border-radius:50%;opacity:.15;filter:blur(40px);pointer-events:none;z-index:0}
+.orb.pink-1{width:380px;height:380px;background:var(--nancy-pink);top:-120px;left:-120px}
+.orb.lime-1{width:340px;height:340px;background:var(--nancy-lime);opacity:.4;bottom:-100px;right:-100px}
+
+.container{
+  position:relative;z-index:1;
+  width:100%;
+  max-width:480px;
+  margin:0 auto;
+  text-align:center;
+}
+
+/* ====== Brand mark ====== */
+.brand{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-bottom:32px;
+  font-family:var(--font-display);
+  font-style:italic;font-weight:600;font-size:24px;
+  color:var(--nancy-ink);
+  letter-spacing:-.01em;
+}
+.brand .mark{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--nancy-pink);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-family:var(--font-display);font-style:italic;
+  font-weight:600;font-size:20px;line-height:1;
+}
+.brand span.dot{color:var(--nancy-pink)}
+
+/* ====== Eyebrow chip ====== */
+.eyebrow{
+  display:inline-block;
+  text-transform:uppercase;letter-spacing:.16em;
+  font-size:11px;font-weight:700;color:var(--nancy-pink);
+  background:#fff;border:1.5px solid var(--nancy-ink);
+  border-radius:var(--radius-pill);
+  padding:6px 14px;margin-bottom:18px;
+}
+
+/* ====== Headline ====== */
+h1{
+  font-family:var(--font-display);
+  font-style:italic;font-weight:500;
+  font-size:clamp(36px, 9vw, 52px);
+  line-height:1.04;
+  letter-spacing:-.025em;
+  margin:0 0 18px;
+  color:var(--nancy-ink);
+}
+h1 .pink{color:var(--nancy-pink)}
+h1 .hl{
+  position:relative;display:inline-block;
+}
+h1 .hl::after{
+  content:"";position:absolute;left:0;right:0;bottom:.04em;
+  height:.18em;background:var(--nancy-lime);
+  z-index:-1;border-radius:4px;
+}
+
+/* ====== Lede paragraph ====== */
+.lede{
+  font-size:16px;line-height:1.55;
+  color:var(--nancy-ink-soft);
+  max-width:380px;margin:0 auto 26px;
+}
+
+/* ====== Trust signals ====== */
+.trust{
+  display:flex;justify-content:center;gap:18px;flex-wrap:wrap;
+  font-size:12px;color:var(--nancy-ink-soft);
+  margin-bottom:28px;
+}
+.trust b{color:var(--nancy-ink)}
+
+/* ====== Perks card ====== */
+.perks{
+  background:var(--nancy-lime);
+  border:1.5px solid var(--nancy-ink);
+  border-radius:16px;
+  padding:18px 22px;
+  margin:0 auto 28px;
+  text-align:left;
+  max-width:380px;
+}
+.perks .label{
+  font-size:10px;text-transform:uppercase;letter-spacing:.14em;
+  font-weight:700;margin-bottom:10px;color:var(--nancy-ink);
+}
+.perks ul{margin:0;padding:0;list-style:none;font-size:13.5px;line-height:1.7}
+.perks li{display:grid;grid-template-columns:24px 1fr;gap:8px;align-items:start}
+.perks code{
+  background:var(--nancy-pink);color:#fff;
+  padding:1px 7px;border-radius:5px;
+  font-family:inherit;font-weight:700;font-size:13px;
+  letter-spacing:.04em;
+}
+
+/* ====== CTA button ====== */
+.cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;max-width:380px;
+  padding:20px 28px;
+  background:var(--nancy-pink);color:#fff;
+  border:1.5px solid var(--nancy-ink);
+  border-radius:var(--radius-pill);
+  font-family:var(--font-body);
+  font-weight:700;font-size:17px;
+  text-decoration:none;
+  cursor:pointer;
+  transition:transform .18s var(--ease), box-shadow .18s var(--ease), background .2s;
+  box-shadow:4px 4px 0 var(--nancy-ink);
+}
+.cta:hover, .cta:focus{
+  transform:translateY(-2px);
+  box-shadow:6px 6px 0 var(--nancy-ink);
+  background:var(--nancy-pink-hot);
+  outline:none;
+}
+.cta .arrow{font-size:20px;line-height:1}
+
+/* ====== Sub-CTA fine print ====== */
+.sub-cta{
+  font-size:12px;color:var(--nancy-ink-soft);
+  margin:14px 0 0;
+}
+.sub-cta b{color:var(--nancy-ink)}
+
+/* ====== Footer reassurance ====== */
+.footer{
+  margin-top:36px;
+  padding-top:20px;
+  border-top:1.5px solid rgba(26,14,20,.12);
+  font-size:11px;color:var(--nancy-ink-soft);
+  max-width:380px;line-height:1.5;
+}
+.footer a{color:var(--nancy-ink);font-weight:600;text-decoration:underline}
+
+/* ====== Reduced motion ====== */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important}
+}
+
+/* ====== Larger screens — keep narrow + centered ====== */
+@media(min-width:560px){
+  .page{padding:48px 24px}
+  h1{font-size:52px}
+}
+</style>
+</head>
+<body>
+
+<main class="page">
+  <div class="orb pink-1"></div>
+  <div class="orb lime-1"></div>
+
+  <div class="container">
+
+    <!-- Brand mark -->
+    <div class="brand">
+      <span class="mark">N</span>
+      <span>hello <span class="dot">nancy</span></span>
+    </div>
+
+    <!-- Eyebrow -->
+    <span class="eyebrow">The Hello Nancy Wellness Study</span>
+
+    <!-- Headline -->
+    <h1>
+      It's time someone asked us what women <span class="hl"><span class="pink">really want</span></span>.
+    </h1>
+
+    <!-- Lede -->
+    <p class="lede">
+      The largest women's wellness study in America. 5,000 voices, 50 states, 90 seconds. Fully anonymous.
+    </p>
+
+    <!-- Trust signals -->
+    <div class="trust">
+      <div>⏱ <b>90 seconds</b></div>
+      <div>🔒 <b>Anonymous</b></div>
+      <div>📊 <b>Independent</b></div>
+    </div>
+
+    <!-- Perks card -->
+    <div class="perks">
+      <div class="label">What you'll get</div>
+      <ul>
+        <li><span>📬</span><span><b>First read</b> of the report when it drops</span></li>
+        <li><span>🎁</span><span><b>25% off Lem</b> with code <code>LEM25</code></span></li>
+        <li><span>✊</span><span><b>Your voice</b> in the data we publish</span></li>
+      </ul>
+    </div>
+
+    <!-- Main CTA -->
+    <a id="cta" class="cta" href="#" rel="noopener">
+      I'm in <span class="arrow">→</span>
+    </a>
+
+    <p class="sub-cta">
+      Takes <b>90 seconds</b>. Your answers stay anonymous.
+    </p>
+
+    <!-- Footer / trust -->
+    <div class="footer">
+      Hello Nancy is a women-founded wellness brand on a mission to advance women's health research.
+      Read our <a href="https://hellonancy.com/privacy" target="_blank" rel="noopener">privacy policy</a> ·
+      <a href="https://hellonancy.com" target="_blank" rel="noopener">hellonancy.com</a>
+    </div>
+  </div>
+</main>
+
+<script>
+/* ====== UTM forwarding ======
+   Pass any ad-tracking parameters from this page's URL through to the quiz,
+   so Meta attribution works end-to-end. */
+
+(function(){
+  // ⚠️ Replace this with your real HeyFlow quiz URL
+  var QUIZ_URL = 'https://unique-pangolin-pan.heyflow.site/the-hello-nancy-pleasure-study-2bf870';
+
+  // Forward all current URL parameters onto the quiz URL
+  var currentParams = window.location.search;
+  var ctaHref = QUIZ_URL;
+  if (currentParams && currentParams.length > 1) {
+    ctaHref += (QUIZ_URL.indexOf('?') > -1 ? '&' : '?') + currentParams.substring(1);
+  }
+
+  // Also add a default utm_source if none is set, so we know it came via the bridge
+  if (ctaHref.indexOf('utm_source') === -1) {
+    ctaHref += (ctaHref.indexOf('?') > -1 ? '&' : '?') + 'utm_source=bridge';
+  }
+
+  var cta = document.getElementById('cta');
+  if (cta) cta.href = ctaHref;
+})();
+
+/* Optional: fire a Meta Pixel event on CTA click.
+   Uncomment if you have Meta Pixel installed.
+document.getElementById('cta').addEventListener('click', function(){
+  if (window.fbq) fbq('track', 'Lead');
+});
+*/
+</script>
+
+</body>
+</html>
